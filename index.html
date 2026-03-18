@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hyunsuk — Economics Job Market Candidate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-bg: #fafaf8;
+    --color-text: #2c2c2c;
+    --color-text-secondary: #636363;
+    --color-accent: #1a5276;
+    --color-accent-light: #d4e6f1;
+    --color-border: #e0ddd8;
+    --color-card-bg: #ffffff;
+    --font-heading: 'Crimson Pro', Georgia, serif;
+    --font-body: 'Source Sans 3', 'Helvetica Neue', sans-serif;
+    --max-width: 740px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+  }
+
+  body {
+    font-family: var(--font-body);
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-size: 16px;
+    line-height: 1.7;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Navigation ── */
+  nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 250, 248, 0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  nav .nav-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  nav .nav-name {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: var(--color-text);
+    text-decoration: none;
+    letter-spacing: -0.01em;
+  }
+
+  nav .nav-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  nav .nav-links a {
+    font-size: 0.88rem;
+    font-weight: 500;
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav .nav-links a:hover {
+    color: var(--color-accent);
+  }
+
+  /* ── Main Container ── */
+  main {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* ── Hero / About ── */
+  .hero {
+    padding: 60px 0 48px;
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+  }
+
+  .hero-photo {
+    flex-shrink: 0;
+    width: 160px;
+    height: 200px;
+    border-radius: 6px;
+    background: var(--color-accent-light);
+    border: 1px solid var(--color-border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+
+  .hero-photo .placeholder-text {
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+    padding: 12px;
+    line-height: 1.5;
+  }
+
+  .hero-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* unhide when photo is added */
+  }
+
+  .hero-content {
+    flex: 1;
+    padding-top: 4px;
+  }
+
+  .hero-content h1 {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    margin-bottom: 4px;
+    color: var(--color-text);
+  }
+
+  .hero-content .subtitle {
+    font-size: 1.02rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 16px;
+    font-weight: 400;
+  }
+
+  .hero-content .bio {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    line-height: 1.75;
+  }
+
+  .hero-content .bio a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-accent-light);
+    transition: border-color 0.2s;
+  }
+
+  .hero-content .bio a:hover {
+    border-color: var(--color-accent);
+  }
+
+  .contact-row {
+    margin-top: 18px;
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 0.88rem;
+  }
+
+  .contact-row a {
+    color: var(--color-accent);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: opacity 0.2s;
+  }
+
+  .contact-row a:hover { opacity: 0.7; }
+
+  .contact-row svg {
+    width: 15px;
+    height: 15px;
+    stroke: var(--color-accent);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── Section Styles ── */
+  .section {
+    padding: 44px 0 40px;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .section-title {
+    font-family: var(--font-heading);
+    font-size: 1.55rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    margin-bottom: 28px;
+    color: var(--color-text);
+  }
+
+  /* ── Research ── */
+  .paper {
+    margin-bottom: 32px;
+  }
+
+  .paper-label {
+    display: inline-block;
+    font-size: 0.7rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    background: var(--color-accent-light);
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 8px;
+  }
+
+  .paper-title {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    color: var(--color-text);
+  }
+
+  .paper-meta {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 8px;
+    font-style: italic;
+  }
+
+  .paper-abstract {
+    font-size: 0.92rem;
+    color: var(--color-text);
+    line-height: 1.72;
+  }
+
+  .paper-abstract summary {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--color-accent);
+    margin-bottom: 8px;
+    user-select: none;
+  }
+
+  .paper-abstract summary:hover { text-decoration: underline; }
+
+  .paper-abstract .abstract-text {
+    padding-top: 6px;
+    font-size: 0.9rem;
+    line-height: 1.72;
+    color: var(--color-text-secondary);
+  }
+
+  .paper-links {
+    margin-top: 10px;
+    display: flex;
+    gap: 14px;
+    font-size: 0.84rem;
+  }
+
+  .paper-links a {
+    color: var(--color-accent);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 3px 0;
+    border-bottom: 1px dashed var(--color-accent-light);
+    transition: border-color 0.2s;
+  }
+
+  .paper-links a:hover {
+    border-color: var(--color-accent);
+  }
+
+  /* ── Teaching ── */
+  .teaching-item {
+    margin-bottom: 20px;
+    padding: 18px 22px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+  }
+
+  .teaching-item h3 {
+    font-family: var(--font-heading);
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--color-text);
+  }
+
+  .teaching-item .teaching-role {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 4px;
+  }
+
+  .teaching-item .teaching-desc {
+    font-size: 0.88rem;
+    color: var(--color-text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ── CV Section ── */
+  .cv-box {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 24px;
+    background: var(--color-card-bg);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    text-decoration: none;
+    color: var(--color-text);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+
+  .cv-box:hover {
+    border-color: var(--color-accent);
+    box-shadow: 0 2px 8px rgba(26, 82, 118, 0.08);
+  }
+
+  .cv-box svg {
+    width: 18px;
+    height: 18px;
+    stroke: var(--color-accent);
+    fill: none;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ── Footer ── */
+  footer {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 32px 24px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+    text-align: center;
+  }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .hero {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 24px;
+    }
+    .hero-photo { width: 140px; height: 175px; }
+    .hero-content h1 { font-size: 1.8rem; }
+    .contact-row { justify-content: center; }
+    nav .nav-links { gap: 16px; }
+    nav .nav-links a { font-size: 0.78rem; }
+  }
+
+  @media (max-width: 420px) {
+    nav .nav-inner { height: 50px; }
+    nav .nav-name { font-size: 1rem; }
+    nav .nav-links { gap: 12px; }
+    nav .nav-links a { font-size: 0.72rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-name">Hyunsuk [Last Name]</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#teaching">Teaching</a></li>
+      <li><a href="#cv">CV</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ── Main Content ── -->
+<main>
+
+  <!-- About / Hero -->
+  <section class="hero" id="about">
+    <div class="hero-photo">
+      <!-- Replace the placeholder below with: <img src="your-photo.jpg" alt="Hyunsuk" style="display:block;"> -->
+      <span class="placeholder-text">Photo<br>coming soon</span>
+    </div>
+    <div class="hero-content">
+      <h1>Hyunsuk [Last Name]</h1>
+      <p class="subtitle">PhD Candidate in Economics · [University Name]</p>
+      <p class="bio">
+        I am a PhD candidate in economics at [University Name], expected to graduate in [Year].
+        My research interests lie at the intersection of <strong>environmental economics</strong> and <strong>labor economics</strong>,
+        with a focus on understanding how environmental conditions shape labor market outcomes and work arrangements.
+        I am on the <strong>2026–2027 job market</strong>.
+      </p>
+      <div class="contact-row">
+        <a href="mailto:your-email@university.edu">
+          <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          your-email@university.edu
+        </a>
+        <a href="#">
+          <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          [City, State]
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Research -->
+  <section class="section" id="research">
+    <h2 class="section-title">Research</h2>
+
+    <!-- JMP -->
+    <div class="paper">
+      <span class="paper-label">Job Market Paper</span>
+      <h3 class="paper-title">The Causal Effects of Winter Weather on Telework Hours: Evidence from CPS Panel Data</h3>
+      <p class="paper-meta">Draft available upon request</p>
+      <div class="paper-abstract">
+        <details>
+          <summary>Abstract</summary>
+          <p class="abstract-text">
+            This paper estimates the causal effects of winter weather conditions on telework hours
+            using Current Population Survey panel data from October 2022 to March 2025. Exploiting
+            within individual variation in weather exposure across CPS interview months, I employ a
+            two way fixed effects identification strategy combined with continuous treatment
+            difference in differences methods. I find that adverse winter weather — measured by
+            temperature, wind speed, and snow depth — significantly increases telework hours,
+            with heterogeneous effects across occupational telework feasibility quartiles, geographic
+            divisions, education levels, and age groups. The results distinguish substitution effects
+            from output effects on total working hours, contributing to our understanding of how
+            environmental conditions shape the evolving geography of work.
+          </p>
+        </details>
+      </div>
+      <div class="paper-links">
+        <a href="#">Paper (PDF)</a>
+        <a href="#">Slides</a>
+      </div>
+    </div>
+
+    <!-- Working Paper placeholder -->
+    <div class="paper">
+      <span class="paper-label" style="background:#f0ece4; color:#7d6b4f;">Working Paper</span>
+      <h3 class="paper-title">[Working Paper Title]</h3>
+      <p class="paper-meta">with [Coauthors if any] · [Status]</p>
+      <div class="paper-abstract">
+        <details>
+          <summary>Abstract</summary>
+          <p class="abstract-text">
+            [Your abstract here.]
+          </p>
+        </details>
+      </div>
+    </div>
+
+    <!-- Work in Progress placeholder -->
+    <div class="paper">
+      <span class="paper-label" style="background:#e8f0e4; color:#4a6741;">Work in Progress</span>
+      <h3 class="paper-title">[Work in Progress Title]</h3>
+      <p class="paper-meta">with [Coauthors if any]</p>
+    </div>
+  </section>
+
+  <!-- Teaching -->
+  <section class="section" id="teaching">
+    <h2 class="section-title">Teaching</h2>
+
+    <div class="teaching-item">
+      <h3>Econ 102 — Principles of Economics</h3>
+      <p class="teaching-role">Instructor · [University Name] · [Semesters]</p>
+      <p class="teaching-desc">
+        Undergraduate introductory economics course. [Add any additional detail such as enrollment size, topics, or teaching evaluations.]
+      </p>
+    </div>
+
+    <div class="teaching-item">
+      <h3>[Additional Course or TA Experience]</h3>
+      <p class="teaching-role">Teaching Assistant · [University Name] · [Semesters]</p>
+      <p class="teaching-desc">
+        [Description of responsibilities.]
+      </p>
+    </div>
+  </section>
+
+  <!-- CV -->
+  <section class="section" id="cv">
+    <h2 class="section-title">Curriculum Vitae</h2>
+    <a href="cv.pdf" class="cv-box" download>
+      <svg viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download CV (PDF)
+    </a>
+    <p style="margin-top: 14px; font-size: 0.85rem; color: var(--color-text-secondary);">
+      Last updated: [Month Year]
+    </p>
+  </section>
+
+</main>
+
+<!-- Footer -->
+<footer>
+  &copy; 2026 Hyunsuk [Last Name]. All rights reserved.
+</footer>
+
+</body>
+</html>
